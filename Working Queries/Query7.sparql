@@ -1,0 +1,9 @@
+select ?Nation (Count(*) as ?CountArtist) where
+{
+?Nationality dbo:longName ?Nation .
+?Artist dbo:nationality ?Nationality .
+?Artist a dbo:Artist
+}
+GROUP BY ?Nation
+ORDER BY Desc(Count(*))
+LIMIT 10

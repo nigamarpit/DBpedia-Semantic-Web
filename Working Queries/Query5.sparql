@@ -1,0 +1,9 @@
+select ?actorNames ?birthDates 
+where {
+?Artist rdfs:label ?actorNames .
+?Artist dbo:birthDate ?birthDates . 
+?Artist a dbo:Artist .
+FILTER regex(?actorNames,"David") .
+FILTER (langMatches(lang(?actorNames),"en"))
+}
+ORDER BY DESC(?birthDates)

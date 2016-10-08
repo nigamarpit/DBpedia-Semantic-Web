@@ -1,0 +1,1 @@
+select (?name as ?ArtistName) { ?painter rdfs:label ?name. ?painter a dbo:Painter}

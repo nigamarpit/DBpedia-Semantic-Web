@@ -1,0 +1,7 @@
+select ?actorName where { 
+  ?film rdfs:label "A Christmas Tale"@en ;
+        dbo:starring ?actor .
+  ?actor rdfs:label ?actorName .
+  filter(langMatches(lang(?actorName),"en"))
+}
+ORDER BY ?actorName

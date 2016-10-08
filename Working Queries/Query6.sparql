@@ -1,0 +1,12 @@
+select ?actorNames
+where{
+?Artist rdfs:label ?actorNames .
+?Artist dbo:instrument ?inst .
+?Artist a dbo:Artist .
+FILTER (langMatches(lang(?actorNames),"en"))
+MINUS 
+{?Artist dbo:instrument dbr:Guitar}
+}
+Group By ?actorNames 
+Having (Count(*)=10)
+Order By ?actorNames
